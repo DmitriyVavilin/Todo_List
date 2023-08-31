@@ -3,13 +3,13 @@ import {appActions} from "app/app.reducer";
 import {BaseResponseType} from "common/types/common.types";
 
 /**
- * Обрабатывает ошибку приложения, полученную от сервера.
+ * Handles an application error received from the server.
  *
- * @template D - Тип данных в ответе от сервера.
- * @param {BaseResponseType<D>} data - Данные ответа от сервера.
- * @param {Dispatch} dispatch - Функция для отправки действий Redux.
- * @param {boolean} [showError=true] - Флаг, определяющий, нужно ли показывать ошибку.
- * @returns {void} ничего не возвращается
+ * @template D - Type of data in the server response.
+ * @param {BaseResponseType<D>} data - Data from the server response.
+ * @param {Dispatch} dispatch - Function for dispatching Redux actions.
+ * @param {boolean} [showError=true] - Flag indicating whether to show the error.
+ * @returns {void} Nothing is returned.
  */
 export const handleServerAppError = <D>(data: BaseResponseType<D>, dispatch: Dispatch, showError: boolean = true) => {
     if (showError) {
