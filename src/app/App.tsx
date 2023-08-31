@@ -1,6 +1,6 @@
 import React, {useCallback, useEffect} from "react";
 import {useSelector} from "react-redux";
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {BrowserRouter, HashRouter, Route, Routes} from "react-router-dom";
 import {
     AppBar,
     Button,
@@ -45,7 +45,7 @@ function App() {
     }
 
     return (
-        <BrowserRouter>
+        <HashRouter>
             <div className="App">
                 <ErrorSnackbar/>
                 <AppBar position="static">
@@ -69,7 +69,7 @@ function App() {
                     </Routes>
                 </Container>
             </div>
-        </BrowserRouter>
+        </HashRouter>
     );
 }
 
