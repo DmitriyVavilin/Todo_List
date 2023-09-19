@@ -1,8 +1,8 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {appActions} from "app/app.reducer";
-import {authAPI, LoginParamsType} from "features/auth/auth.api";
 import {clearTasksAndTodolists} from "common/actions";
-import {createAppAsyncThunk, handleServerAppError, handleServerNetworkError, thunkTryCatch} from "common/utils";
+import {createAppAsyncThunk, handleServerAppError, thunkTryCatch} from "common/utils";
+import {authAPI, LoginParamsType} from "features/auth/api/auth.api";
 
 const slice = createSlice({
     name: "auth",
