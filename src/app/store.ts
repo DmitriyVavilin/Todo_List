@@ -1,10 +1,10 @@
 import {tasksReducer} from "features/TodolistsList/tasks.reducer";
-import {todolistsReducer} from "features/TodolistsList/todolists.reducer";
+import {todolistsReducer} from "features/TodolistsList/model/todolists.reducer";
 import {AnyAction} from "redux";
 import {ThunkDispatch} from "redux-thunk";
 import {appReducer} from "app/app.reducer";
 import {configureStore} from "@reduxjs/toolkit";
-import {authSlice} from "features/auth/model/auth.slice";
+import {authSlice} from "features/Auth/model/auth.slice";
 
 export const store = configureStore({
   reducer: {

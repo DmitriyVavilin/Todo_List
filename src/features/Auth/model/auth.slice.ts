@@ -1,11 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { appActions } from "app/app.reducer";
-import { authAPI, LoginParamsType } from "features/auth/api/auth.api";
+import { authAPI, LoginParamsType } from "features/Auth/api/auth.api";
 import { clearTasksAndTodolists } from "common/actions";
 import { createAppAsyncThunk, handleServerAppError, handleServerNetworkError, thunkTryCatch } from "common/utils";
 import { ResultCode } from "common/enums";
 
-const login = createAppAsyncThunk<{ isLoggedIn: boolean }, LoginParamsType>("auth/login", async (arg, thunkAPI) => {
+const login = createAppAsyncThunk<{ isLoggedIn: boolean }, LoginParamsType>("Auth/login", async (arg, thunkAPI) => {
   const { dispatch, rejectWithValue } = thunkAPI;
   return thunkTryCatch(thunkAPI, async () => {
     const res = await authAPI.login(arg);
@@ -19,7 +19,7 @@ const login = createAppAsyncThunk<{ isLoggedIn: boolean }, LoginParamsType>("aut
   });
 });
 
-const logout = createAppAsyncThunk<{ isLoggedIn: boolean }, void>("auth/logout", async (_, thunkAPI) => {
+const logout = createAppAsyncThunk<{ isLoggedIn: boolean }, void>("Auth/logout", async (_, thunkAPI) => {
   const { dispatch, rejectWithValue } = thunkAPI;
   return thunkTryCatch(thunkAPI, async () => {
     const res = await authAPI.logout();

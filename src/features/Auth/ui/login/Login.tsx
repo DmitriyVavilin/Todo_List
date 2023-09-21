@@ -1,17 +1,13 @@
 import React from "react";
-import {useSelector} from "react-redux";
 import {Navigate} from "react-router-dom";
 import {Button, Checkbox, FormControl, FormControlLabel, FormGroup, FormLabel, Grid, TextField} from "@mui/material";
-import {selectIsLoggedIn} from "features/auth/model/auth.selectors";
-import s from "features/auth/ui/login/login.module.css";
-import {useLogin} from "features/auth/lib/useLogin";
+import s from "features/Auth/ui/login/login.module.css";
+import {useLogin} from "features/Auth/lib/useLogin";
 
 
 export const Login = () => {
-    debugger
-    const formik = useLogin()
+    const {formik, isLoggedIn} = useLogin()
 
-    const isLoggedIn = useSelector(selectIsLoggedIn);
     if (isLoggedIn) {
         return <Navigate to={"/"}/>;
     }

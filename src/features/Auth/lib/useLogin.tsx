@@ -1,14 +1,18 @@
 import {FormikHelpers, useFormik} from "formik";
-import {LoginParamsType} from "features/auth/api/auth.api";
+import {LoginParamsType} from "features/Auth/api/auth.api";
 import {BaseResponseType} from "common/types";
 import {useActions} from "common/hooks";
-import {authThunks} from "features/auth/model/auth.slice";
+import {authThunks} from "features/Auth/model/auth.slice";
+import {useSelector} from "react-redux";
+import {selectIsLoggedIn} from "features/Auth/model/auth.selectors";
 
 type FormikErrorType = Partial<Omit<LoginParamsType, 'captcha'>>
 
 export const useLogin = () => {
 
     const {login} = useActions(authThunks);
+    const isLoggedIn = useSelector(selectIsLoggedIn);
+
 
     const formik = useFormik({
         validate: (values) => {
@@ -42,5 +46,5 @@ export const useLogin = () => {
                 });
         },
     });
-    return formik
+    return {formik,isLoggedIn}
 }
