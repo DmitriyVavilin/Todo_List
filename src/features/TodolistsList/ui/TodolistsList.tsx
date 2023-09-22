@@ -18,7 +18,6 @@ export const TodolistsList = () => {
     const {
         fetchTodolists,
         addTodolist,
-        changeTodolistTitle: changeTodolistTitleThunk
     } = useActions(todolistsThunks)
 
     useEffect(() => {
@@ -26,10 +25,6 @@ export const TodolistsList = () => {
             return;
         }
         fetchTodolists()
-    }, []);
-
-    const changeTodolistTitle = useCallback(function (id: string, title: string) {
-        changeTodolistTitleThunk({id, title})
     }, []);
 
     const addTodolistCallBack = useCallback(
