@@ -1,7 +1,6 @@
 import React, {useCallback, useEffect} from "react";
 import {useSelector} from "react-redux";
-import {FilterValuesType, todolistsActions, todolistsThunks} from "features/TodolistsList/model/todolists.reducer";
-import {tasksThunks} from "features/TodolistsList/tasks.reducer";
+import {todolistsThunks} from "features/TodolistsList/model/todolists.reducer";
 import {Grid, Paper} from "@mui/material";
 import {AddItemForm} from "common/components";
 import {Todolist} from "features/TodolistsList/ui/Todolist/Todolist";
@@ -18,13 +17,9 @@ export const TodolistsList = () => {
 
     const {
         fetchTodolists,
-        removeTodolist: removeTodolistThunk,
-        addTodolist: addTodolistThunk,
+        addTodolist,
         changeTodolistTitle: changeTodolistTitleThunk
     } = useActions(todolistsThunks)
-    const {changeTodolistFilter} = useActions(todolistsActions)
-    const { addTask: addTaskThunk, updateTask} = useActions(tasksThunks)
-
 
     useEffect(() => {
         if (!isLoggedIn) {
@@ -33,25 +28,13 @@ export const TodolistsList = () => {
         fetchTodolists()
     }, []);
 
-    const addTask = useCallback(function (title: string, todolistId: string) {
-        addTaskThunk({title, todolistId})
-    }, []);
-
-    const changeFilter = useCallback(function (filter: FilterValuesType, id: string) {
-        changeTodolistFilter({id, filter})
-    }, []);
-
-    const removeTodolist = useCallback(function (id: string) {
-        removeTodolistThunk(id)
-    }, []);
-
     const changeTodolistTitle = useCallback(function (id: string, title: string) {
         changeTodolistTitleThunk({id, title})
     }, []);
 
-    const addTodolist = useCallback(
+    const addTodolistCallBack = useCallback(
         (title: string) => {
-            addTodolistThunk(title)
+            addTodolist(title)
         },
         [],
     );
@@ -63,7 +46,7 @@ export const TodolistsList = () => {
     return (
         <>
             <Grid container style={{padding: "20px"}}>
-                <AddItemForm addItem={addTodolist}/>
+                <AddItemForm addItem={addTodolistCallBack}/>
             </Grid>
             <Grid container spacing={3}>
                 {todolists.map((tl) => {
@@ -75,10 +58,6 @@ export const TodolistsList = () => {
                                 <Todolist
                                     todolist={tl}
                                     tasks={allTodolistTasks}
-                                    changeFilter={changeFilter}
-                                    addTask={addTask}
-                                    removeTodolist={removeTodolist}
-                                    changeTodolistTitle={changeTodolistTitle}
                                 />
                             </Paper>
                         </Grid>

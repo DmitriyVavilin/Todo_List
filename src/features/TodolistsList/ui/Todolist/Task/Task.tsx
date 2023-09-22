@@ -1,4 +1,4 @@
-import React, {ChangeEvent, useCallback} from "react";
+import React, {ChangeEvent} from "react";
 import {Checkbox, IconButton} from "@mui/material";
 import {Delete} from "@mui/icons-material";
 import {TaskType} from "features/TodolistsList/api/todolists.api";
@@ -7,6 +7,7 @@ import {TaskStatuses} from "common/enums";
 import {useActions} from "common/hooks";
 import {tasksThunks} from "features/TodolistsList/tasks.reducer";
 import {todolistsThunks} from "features/TodolistsList/model/todolists.reducer";
+import s from './Task.module.css'
 
 type Props = {
     task: TaskType;
@@ -31,7 +32,7 @@ export const Task: React.FC<Props> = React.memo(({task, todolistId}) => {
     }
 
     return (
-        <div key={task.id} className={task.status === TaskStatuses.Completed ? "is-done" : ""}>
+        <div key={task.id} className={task.status === TaskStatuses.Completed ? s.isDone : ""}>
             <Checkbox checked={task.status === TaskStatuses.Completed} color="primary"
                       onChange={changeStatusHandler}/>
 
