@@ -9,7 +9,6 @@ import {Navigate} from "react-router-dom";
 import {useActions} from "common/hooks";
 import {selectTasks} from "features/TodolistsList/tasks.selectors";
 import {selectTodolists} from "features/TodolistsList/todolists.selectors";
-import {TaskStatuses} from "common/enums";
 import {selectIsLoggedIn} from "features/Auth/model/auth.selectors";
 
 export const TodolistsList = () => {
@@ -36,11 +35,6 @@ export const TodolistsList = () => {
 
     const addTask = useCallback(function (title: string, todolistId: string) {
         addTaskThunk({title, todolistId})
-    }, []);
-
-
-    const changeTaskTitle = useCallback(function (taskId: string, title: string, todolistId: string) {
-        updateTask({taskId, domainModel: {title}, todolistId})
     }, []);
 
     const changeFilter = useCallback(function (filter: FilterValuesType, id: string) {
@@ -84,7 +78,6 @@ export const TodolistsList = () => {
                                     changeFilter={changeFilter}
                                     addTask={addTask}
                                     removeTodolist={removeTodolist}
-                                    changeTaskTitle={changeTaskTitle}
                                     changeTodolistTitle={changeTodolistTitle}
                                 />
                             </Paper>
