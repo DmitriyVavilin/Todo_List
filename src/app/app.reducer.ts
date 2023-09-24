@@ -1,4 +1,6 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {isInteger} from "formik";
+import {AnyAction} from "redux";
 
 const initialState = {
     status: "idle" as RequestStatusType,
@@ -23,7 +25,23 @@ const slice = createSlice({
             state.isInitialized = action.payload.isInitialized;
         },
     },
+    extraReducers: builder => {
+        builder.addMatcher((action: AnyAction) => {
+            return action.type.endsWith('/pending')
+        }, (state, action) => {
+            state.status = 'loading'
+        }).addMatcher((action: AnyAction) => {
+            return action.type.endsWith('/rejected')
+        }, (state, action) => {
+            state.status = 'failed'
+        }).addMatcher((action:AnyAction)=> {
+            return action.type.endsWith('/fulfilled')
+        },(state, action)=>{
+            state.status = 'succeeded'
+        })
+    }
 });
 
 export const appReducer = slice.reducer;
 export const appActions = slice.actions;
+

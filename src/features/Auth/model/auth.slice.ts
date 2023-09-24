@@ -70,5 +70,8 @@ const slice = createSlice({
   },
 });
 
+
+// homework  add addMather
+
 export const authSlice = slice.reducer;
 export const authThunks = { login, logout, initializeApp };
