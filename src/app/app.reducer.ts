@@ -1,5 +1,4 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {isInteger} from "formik";
 import {AnyAction} from "redux";
 
 const initialState = {
@@ -33,10 +32,17 @@ const slice = createSlice({
         }).addMatcher((action: AnyAction) => {
             return action.type.endsWith('/rejected')
         }, (state, action) => {
+            debugger
             state.status = 'failed'
-        }).addMatcher((action:AnyAction)=> {
+            if (action.payload) {
+                if (action.type === "todo/addTodolist/rejected") return;
+                state.error = action.payload.messages[0]
+            } else {
+                state.error = action.error.message ? action.error.message : 'Some error occurred'
+            }
+        }).addMatcher((action: AnyAction) => {
             return action.type.endsWith('/fulfilled')
-        },(state, action)=>{
+        }, (state, action) => {
             state.status = 'succeeded'
         })
     }
