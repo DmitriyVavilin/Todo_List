@@ -32,7 +32,6 @@ const slice = createSlice({
         }).addMatcher((action: AnyAction) => {
             return action.type.endsWith('/rejected')
         }, (state, action) => {
-            debugger
             state.status = 'failed'
             if (action.payload) {
                 if (action.type === "todo/addTodolist/rejected") return;

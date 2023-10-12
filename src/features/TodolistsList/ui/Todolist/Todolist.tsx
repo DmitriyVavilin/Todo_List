@@ -3,7 +3,7 @@ import {TodolistDomainType} from "features/TodolistsList/model/todolists/todolis
 import {tasksThunks} from "features/TodolistsList/model/tasks/tasks.reducer";
 import {TaskType} from "features/TodolistsList/api/todolists.api";
 import {useActions, useAppDispatch} from "common/hooks";
-import {AddItemForm} from "common/components";
+import {AddItemForm} from "common/ui";
 import {FilterTasksButtons} from "features/TodolistsList/ui/Todolist/FilterTasksButtons/FilterTasksButtons";
 import {Tasks} from "features/TodolistsList/ui/Todolist/Tasks/Tasks";
 import {TodoListTitle} from "features/TodolistsList/ui/Todolist/TodoListTitle/TodoListTitle";

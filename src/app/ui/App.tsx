@@ -12,11 +12,11 @@ import {
     Typography,
 } from "@mui/material";
 import {Menu} from "@mui/icons-material";
-import "./App.css";
+import "app/ui/App.css";
 import {TodolistsList} from "features/TodolistsList/ui/TodolistsList";
-import {ErrorSnackbar} from "common/components";
+import {ErrorSnackbar} from "common/ui";
 import {useActions} from "common/hooks";
-import {selectAppStatus, selectIsInitialized} from "app/app.selectors";
+import {selectAppStatus, selectIsInitialized} from "app/model/app.selectors";
 import {Login} from "features/Auth/ui/login/Login";
 import {selectIsLoggedIn} from "features/Auth/model/auth.selectors";
 import {authThunks} from "features/Auth/model/auth.slice";

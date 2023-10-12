@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import {EditableSpan} from "common/components";
+import {EditableSpan} from "common/ui";
 import {IconButton} from "@mui/material";
 import {Delete} from "@mui/icons-material";
 import {TodolistDomainType, todolistsThunks} from "features/TodolistsList/model/todolists/todolists.reducer";

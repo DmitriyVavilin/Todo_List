@@ -1,6 +1,6 @@
 import { Dispatch } from "redux";
 import axios, { AxiosError } from "axios";
-import { appActions } from "app/app.reducer";
+import { appActions } from "app/model/app.reducer";
 
 /**
  * Handles network errors from the server.

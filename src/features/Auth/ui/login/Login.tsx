@@ -6,7 +6,7 @@ import {useLogin} from "features/Auth/lib/useLogin";
 
 
 export const Login = () => {
-    const {formik, isLoggedIn} = useLogin()
+    const {formik, isLoggedIn,} = useLogin()
 
     if (isLoggedIn) {
         return <Navigate to={"/"}/>;

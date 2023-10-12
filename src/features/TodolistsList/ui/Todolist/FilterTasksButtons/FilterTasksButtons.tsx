@@ -3,7 +3,6 @@ import {Button} from "@mui/material";
 import {useActions} from "common/hooks";
 import {FilterValuesType, TodolistDomainType, todolistsActions} from "features/TodolistsList/model/todolists/todolists.reducer";
 
-
 type Props = {
     todolist: TodolistDomainType;
 }
@@ -15,10 +14,6 @@ export const FilterTasksButtons:FC<Props> = ({todolist}) => {
     const changeTodolistFilterHandler = (filter: FilterValuesType) => {
         changeTodolistFilter({id: todolist.id, filter})
     }
-
-    const onAllClickHandler = () => changeTodolistFilter({id: todolist.id, filter: "all"})
-    const onActiveClickHandler = () => changeTodolistFilter({id: todolist.id, filter: "active"})
-    const onCompletedClickHandler = () => changeTodolistFilter({id: todolist.id, filter: "completed"})
 
     return (
         <>

@@ -28,7 +28,6 @@ export const useLogin = () => {
             } else if (values.password.length < 3) {
                 errors.password = "Must be 3 characters or more";
             }
-
             return errors;
         },
         initialValues: {

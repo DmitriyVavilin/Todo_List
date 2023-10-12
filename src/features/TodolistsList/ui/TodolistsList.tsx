@@ -2,7 +2,7 @@ import React, {useCallback, useEffect} from "react";
 import {useSelector} from "react-redux";
 import {todolistsThunks} from "features/TodolistsList/model/todolists/todolists.reducer";
 import {Grid, Paper} from "@mui/material";
-import {AddItemForm} from "common/components";
+import {AddItemForm} from "common/ui";
 import {Todolist} from "features/TodolistsList/ui/Todolist/Todolist";
 import {Navigate} from "react-router-dom";
 import {useActions} from "common/hooks";

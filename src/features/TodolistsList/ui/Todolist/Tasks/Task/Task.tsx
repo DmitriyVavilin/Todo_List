@@ -2,7 +2,7 @@ import React, {ChangeEvent} from "react";
 import {Checkbox, IconButton} from "@mui/material";
 import {Delete} from "@mui/icons-material";
 import {TaskType} from "features/TodolistsList/api/todolists.api";
-import {EditableSpan} from "common/components";
+import {EditableSpan} from "common/ui";
 import {TaskStatuses} from "common/enums";
 import {useActions} from "common/hooks";
 import {tasksThunks} from "features/TodolistsList/model/tasks/tasks.reducer";
